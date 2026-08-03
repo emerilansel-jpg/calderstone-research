@@ -1,0 +1,19 @@
+{
+  "name": "calderstone-research",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "latest",
+    "@astrojs/mdx": "^7.0.2",
+    "@astrojs/rss": "^4.0.19"
+  }
+}

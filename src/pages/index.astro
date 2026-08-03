@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustBadge from '../components/TrustBadge.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('research'))
+  .filter(p => p.data.status === 'Live')
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Home" description="Calderstone Research publishes rigorous market intelligence, sector benchmarks, and methodology-driven analysis.">
+  <!-- Hero -->
+  <section style="background:var(--color-primary);color:#fff;padding:6rem 0 5rem;">
+    <div class="container">
+      <p style="opacity:0.75;letter-spacing:0.12em;text-transform:uppercase;font-size:0.8rem;margin-bottom:1rem;font-weight:600;">Independent Research &middot; Inspectable Evidence</p>
+      <h1 style="color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);max-width:720px;line-height:1.15;">
+        Research You Can Trace to Its Source
+      </h1>
+      <p style="opacity:0.85;font-size:1.15rem;max-width:620px;margin-top:1.75rem;line-height:1.75;">
+        Calderstone Research produces independent category benchmarks, market analysis, and methodology primers. Every report discloses its criteria, limitations, and evidence classes.
+      </p>
+      <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="/insights" class="btn">Read Our Insights</a>
+        <a href="/methodology" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;">Our Methodology</a>
+      </div>
+      <div style="margin-top:2.5rem;display:flex;gap:0.6rem;flex-wrap:wrap;">
+        <TrustBadge icon="&#10003;" label="No pay-to-rank" />
+        <TrustBadge icon="&#128203;" label="Published methodology" />
+        <TrustBadge icon="&#128100;" label="Named reviewers" />
+        <TrustBadge icon="&#8634;" label="Open corrections" />
+        <TrustBadge icon="&#9888;" label="Proof gaps disclosed" />
+        <TrustBadge icon="&#9733;" label="Evidence over advocacy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Insights -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;">
+        <div>
+          <h2>Recent Insights</h2>
+          <p style="color:var(--color-muted);max-width:540px;margin-top:0.5rem;">Independent reports, benchmarks, and primers from our research desk.</p>
+        </div>
+        <a href="/insights" style="font-weight:600;">View all insights &rarr;</a>
+      </div>
+      {posts.length > 0 ? (
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem;">
+          {posts.map(post => (
+            <article style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);padding:1.5rem;">
+              <span style="background:var(--color-accent);color:#fff;font-size:0.65rem;padding:0.2rem 0.5rem;border-radius:4px;text-transform:uppercase;">{post.data.outputFormat}</span>
+              <h3 style="margin-top:0.75rem;font-size:1.15rem;"><a href={`/research/${post.id}`} style="color:var(--color-primary);">{post.data.title}</a></h3>
+              <p style="color:var(--color-muted);font-size:0.9rem;line-height:1.6;">{post.data.description}</p>
+              <p style="color:var(--color-muted);font-size:0.8rem;margin-top:0.75rem;">{post.data.author} &middot; {new Date(post.data.publishDate).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' })}</p>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p style="color:var(--color-muted);">No research articles published yet.</p>
+      )}
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section" style="background:var(--color-surface);">
+    <div class="container">
+      <NewsletterSignup />
+    </div>
+  </section>
+</BaseLayout>

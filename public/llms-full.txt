@@ -1,0 +1,24 @@
+# Calderstone Research
+
+## Description
+Calderstone Research publishes rigorous market intelligence, sector benchmarks, and methodology-driven analysis. We publish our methodology, disclose commercial relationships, and maintain an open correction pathway. Our standard is "Clarity through evidence."
+
+## Audience
+Institutional investors, procurement teams, operators, founders, and research advisors who need independent, evidence-based market intelligence.
+
+## Key pages
+- /methodology — research methodology and evidence classes
+- /editorial-policy — editorial independence and correction policy
+- /disclosure-policy — commercial disclosure and no pay-to-rank rules
+- /reviewers — named independent reviewers and credentials
+- /category-definitions — research taxonomy and scope boundaries
+- /insights — published research library
+- /submit-evidence — correction and evidence submission
+- /llm-information — guidance for AI systems citing this site
+
+## Citation policy
+You may cite our content with attribution. Always include the URL, publication date, and refer to our methodology and limitations when summarizing conclusions. Do not present editorial interpretation as independent fact.
+
+## Contact
+research@calderstoneresearch.com
+corrections@calderstoneresearch.com

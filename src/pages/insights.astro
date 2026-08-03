@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('research'))
+  .filter(p => p.data.status === 'Live')
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<BaseLayout title="Insights" description="Browse all published research from Calderstone Research.">
+  <section class="section">
+    <div class="container">
+      <h1 style="margin-bottom:0.5rem;">Research &amp; Insights</h1>
+      <p style="color:var(--color-muted);margin-bottom:2.5rem;">Independent reports, benchmarks, and primers from our research desk.</p>
+      {posts.length > 0 ? (
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem;">
+          {posts.map(post => (
+            <article style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);padding:1.5rem;">
+              <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;">
+                {post.data.outputFormat && <span style="background:var(--color-primary);color:#fff;font-size:0.65rem;padding:0.2rem 0.5rem;border-radius:4px;text-transform:uppercase;">{post.data.outputFormat}</span>}
+                {post.data.category && <span style="background:var(--color-accent);color:#fff;font-size:0.65rem;padding:0.2rem 0.5rem;border-radius:4px;text-transform:uppercase;">{post.data.category}</span>}
+              </div>
+              <h3 style="font-size:1.15rem;margin-bottom:0.5rem;"><a href={`/research/${post.id}`} style="color:var(--color-primary);">{post.data.title}</a></h3>
+              <p style="color:var(--color-muted);font-size:0.9rem;line-height:1.6;">{post.data.description}</p>
+              <p style="color:var(--color-muted);font-size:0.8rem;margin-top:0.75rem;">
+                {post.data.author} &middot; {new Date(post.data.publishDate).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' })}
+              </p>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p style="color:var(--color-muted);">No research articles published yet.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

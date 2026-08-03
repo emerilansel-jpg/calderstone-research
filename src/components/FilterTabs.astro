@@ -1,0 +1,11 @@
+---
+interface Props { categories?: string[] }
+const { categories = ['All', 'Market Report', 'Category Benchmark', 'Comparative Analysis', 'Research Primer'] } = Astro.props;
+---
+<div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem;">
+  {categories.map(cat => (
+    <button class="filter-tab" data-category={cat} style="padding:0.45rem 1rem;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-surface);cursor:pointer;font-size:0.85rem;font-weight:500;transition:all 0.2s;">
+      {cat}
+    </button>
+  ))}
+</div>

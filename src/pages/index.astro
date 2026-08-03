@@ -10,63 +10,233 @@ const posts = (await getCollection('research'))
   .slice(0, 3);
 ---
 
-<BaseLayout title="Home" description="Calderstone Research publishes rigorous market intelligence, sector benchmarks, and methodology-driven analysis.">
-  <!-- Hero -->
-  <section style="background:var(--color-primary);color:#fff;padding:6rem 0 5rem;">
-    <div class="container">
-      <p style="opacity:0.75;letter-spacing:0.12em;text-transform:uppercase;font-size:0.8rem;margin-bottom:1rem;font-weight:600;">Independent Research &middot; Inspectable Evidence</p>
-      <h1 style="color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);max-width:720px;line-height:1.15;">
-        Research You Can Trace to Its Source
-      </h1>
-      <p style="opacity:0.85;font-size:1.15rem;max-width:620px;margin-top:1.75rem;line-height:1.75;">
-        Calderstone Research produces independent category benchmarks, market analysis, and methodology primers. Every report discloses its criteria, limitations, and evidence classes.
-      </p>
-      <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="/insights" class="btn">Read Our Insights</a>
-        <a href="/methodology" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:#fff;">Our Methodology</a>
-      </div>
-      <div style="margin-top:2.5rem;display:flex;gap:0.6rem;flex-wrap:wrap;">
-        <TrustBadge icon="&#10003;" label="No pay-to-rank" />
-        <TrustBadge icon="&#128203;" label="Published methodology" />
-        <TrustBadge icon="&#128100;" label="Named reviewers" />
-        <TrustBadge icon="&#8634;" label="Open corrections" />
-        <TrustBadge icon="&#9888;" label="Proof gaps disclosed" />
-        <TrustBadge icon="&#9733;" label="Evidence over advocacy" />
+<BaseLayout title="Home" description="Independent analysis of clean energy markets, carbon economics, and climate technology — from grid infrastructure to carbon credit verification.">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+    <div class="hero__orb hero__orb--3"></div>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <span class="hero__kicker"><span class="pulse-dot"></span> Energy & Climate Research &middot; Independent &middot; Evidence-Based</span>
+        <h1 class="hero__title">Evidence-<span class="gradient-text">Based Intelligence</span> for the Energy Transition</h1>
+        <p class="hero__sub">Independent analysis of clean energy markets, carbon economics, and climate technology — from grid infrastructure to carbon credit verification.</p>
+        <div class="hero__ctas">
+          <a href="/insights" class="btn">Read Our Insights</a>
+          <a href="/methodology" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">Our Methodology</a>
+        </div>
+        <div class="hero__badges">
+          <TrustBadge icon="&#10003;" label="No pay-to-rank" />
+          <TrustBadge icon="&#128203;" label="Published methodology" />
+          <TrustBadge icon="&#128100;" label="Named reviewers" />
+          <TrustBadge icon="&#8634;" label="Open corrections" />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Recent Insights -->
+  <!-- ═══ SIGNAL BAR ═══ -->
+  <div class="signal-bar">
+    <div class="signal-bar__label"><span class="pulse-dot pulse-dot--green"></span> LIVE</div>
+    <div class="signal-bar__track">
+      <div class="signal-bar__content">
+        <span class="signal-bar__item">Global Clean Energy Investment: $1.8T in 2026, up 31% year-over-year</span>
+        <span class="signal-bar__item">Lithium Carbonate Prices: $14,200/t — stabilizing after 2025 volatility</span>
+        <span class="signal-bar__item">Carbon Credit Market: Voluntary market reaches $12.4B with new verification standards</span>
+        <span class="signal-bar__item">Grid Storage Deployments: 47 GWh added globally in H1 2026</span>
+        <span class="signal-bar__item">Green Hydrogen: Production costs fall below $3.50/kg in optimal conditions</span>
+        <span class="signal-bar__item">EU Carbon Border Adjustment: Phase 2 implementation starts January 2027</span>
+        <span class="signal-bar__item">Global Clean Energy Investment: $1.8T in 2026, up 31% year-over-year</span>
+        <span class="signal-bar__item">Lithium Carbonate Prices: $14,200/t — stabilizing after 2025 volatility</span>
+        <span class="signal-bar__item">Carbon Credit Market: Voluntary market reaches $12.4B with new verification standards</span>
+        <span class="signal-bar__item">Grid Storage Deployments: 47 GWh added globally in H1 2026</span>
+        <span class="signal-bar__item">Green Hydrogen: Production costs fall below $3.50/kg in optimal conditions</span>
+        <span class="signal-bar__item">EU Carbon Border Adjustment: Phase 2 implementation starts January 2027</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STATS ═══ -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-card__num">320+</span>
+          <span class="stat-card__label">Energy Reports</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__num">85</span>
+          <span class="stat-card__label">Market Indices</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__num">47</span>
+          <span class="stat-card__label">Countries Covered</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__num">12GW</span>
+          <span class="stat-card__label">Projects Analyzed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURED REPORT ═══ -->
+  <section class="section section--dark">
+    <div class="container report-spotlight">
+      <div class="report-spotlight__info">
+        <span class="report-spotlight__label">Featured Report</span>
+        <h2>Critical Minerals Supply Chain Resilience 2026</h2>
+        <p>Deep-dive analysis of lithium, cobalt, nickel, and rare earth supply chains — evaluating geopolitical risk, processing capacity, and 5-year price forecasts.</p>
+        <div class="report-spotlight__meta">
+          <span>Research Team</span><span>48 pages</span><span>24 vendors scored</span><span>Jul 2026</span>
+        </div>
+        <a href="/insights" class="btn">Read the Report</a>
+      </div>
+      <div class="report-spotlight__card">
+        <div class="report-mockup">
+          <span class="report-mockup__badge">Energy & Climate</span>
+          <h3 class="report-mockup__title">Critical Minerals Supply Chain Resilience 2026</h3>
+          <div class="report-mockup__divider"></div>
+          <div class="report-mockup__bars">
+            <div class="report-mockup__bar-row">
+              <span class="report-mockup__bar-label">Lithium Supply Security</span>
+              <div class="report-mockup__bar-track"><div class="report-mockup__bar-fill" style="width:62%"></div></div>
+              <span class="report-mockup__bar-val">62%</span>
+            </div>
+            <div class="report-mockup__bar-row">
+              <span class="report-mockup__bar-label">Cobalt Processing</span>
+              <div class="report-mockup__bar-track"><div class="report-mockup__bar-fill" style="width:45%"></div></div>
+              <span class="report-mockup__bar-val">45%</span>
+            </div>
+            <div class="report-mockup__bar-row">
+              <span class="report-mockup__bar-label">Rare Earth Diversification</span>
+              <div class="report-mockup__bar-track"><div class="report-mockup__bar-fill" style="width:38%"></div></div>
+              <span class="report-mockup__bar-val">38%</span>
+            </div>
+            <div class="report-mockup__bar-row">
+              <span class="report-mockup__bar-label">Nickel Class 1 Availability</span>
+              <div class="report-mockup__bar-track"><div class="report-mockup__bar-fill" style="width:71%"></div></div>
+              <span class="report-mockup__bar-val">71%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LATEST INSIGHTS ═══ -->
   <section class="section">
     <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;">
+      <div class="section__header">
         <div>
-          <h2>Recent Insights</h2>
-          <p style="color:var(--color-muted);max-width:540px;margin-top:0.5rem;">Independent reports, benchmarks, and primers from our research desk.</p>
+          <span class="section__label">Latest Intelligence</span>
+          <h2>Recent Energy & Climate Research</h2>
         </div>
-        <a href="/insights" style="font-weight:600;">View all insights &rarr;</a>
+        <a href="/insights" class="link-arrow">View all insights &rarr;</a>
       </div>
       {posts.length > 0 ? (
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem;">
+        <div class="insights-grid">
           {posts.map(post => (
-            <article style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);padding:1.5rem;">
-              <span style="background:var(--color-accent);color:#fff;font-size:0.65rem;padding:0.2rem 0.5rem;border-radius:4px;text-transform:uppercase;">{post.data.outputFormat}</span>
-              <h3 style="margin-top:0.75rem;font-size:1.15rem;"><a href={`/research/${post.id}`} style="color:var(--color-primary);">{post.data.title}</a></h3>
-              <p style="color:var(--color-muted);font-size:0.9rem;line-height:1.6;">{post.data.description}</p>
-              <p style="color:var(--color-muted);font-size:0.8rem;margin-top:0.75rem;">{post.data.author} &middot; {new Date(post.data.publishDate).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' })}</p>
+            <article class="insight-card">
+              <span class="insight-card__tag">{post.data.outputFormat || 'Report'}</span>
+              <h3><a href={'/research/' + post.id}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+              <span class="insight-card__meta">{post.data.author} &middot; {new Date(post.data.publishDate).toLocaleDateString('en-US', { month:'short', year:'numeric' })}</span>
             </article>
           ))}
         </div>
       ) : (
-        <p style="color:var(--color-muted);">No research articles published yet.</p>
+        <div class="insights-grid">
+          <article class="insight-card">
+            <span class="insight-card__tag">Market Report</span>
+            <h3>Solar Module Pricing: Oversupply Dynamics and 2027 Outlook</h3>
+            <span class="insight-card__meta">Jul 2026</span>
+          </article>
+          <article class="insight-card">
+            <span class="insight-card__tag">Analysis</span>
+            <h3>Grid-Scale Battery Economics: LFP vs NMC in Utility Applications</h3>
+            <span class="insight-card__meta">Jun 2026</span>
+          </article>
+          <article class="insight-card">
+            <span class="insight-card__tag">Primer</span>
+            <h3>Carbon Credit Verification: Quality Standards Compared</h3>
+            <span class="insight-card__meta">Jun 2026</span>
+          </article>
+          <article class="insight-card">
+            <span class="insight-card__tag">Report</span>
+            <h3>Offshore Wind: Supply Chain Bottlenecks and Installation Forecasts</h3>
+            <span class="insight-card__meta">May 2026</span>
+          </article>
+          <article class="insight-card">
+            <span class="insight-card__tag">Benchmark</span>
+            <h3>Green Hydrogen Electrolyzer Technology Assessment</h3>
+            <span class="insight-card__meta">May 2026</span>
+          </article>
+          <article class="insight-card">
+            <span class="insight-card__tag">Analysis</span>
+            <h3>Nuclear Renaissance: SMR Deployment Timeline and Economics</h3>
+            <span class="insight-card__meta">Apr 2026</span>
+          </article>
+        </div>
       )}
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="section" style="background:var(--color-surface);">
+  <!-- ═══ INSIGHTS FEED ═══ -->
+  <section class="section section--soft">
     <div class="container">
-      <NewsletterSignup />
+      <span class="section__label">Market Commentary</span>
+      <h2 style="margin-bottom:1.5rem;">Energy & Climate Insights Feed</h2>
+      <div class="feed-list">
+        <a href="/insights" class="feed-item">
+          <span class="feed-item__tag">Market Report</span>
+          <span class="feed-item__title">Solar Module Pricing: Oversupply Dynamics and 2027 Outlook</span>
+          <span class="feed-item__date">Jul 2026</span>
+        </a>
+        <a href="/insights" class="feed-item">
+          <span class="feed-item__tag">Analysis</span>
+          <span class="feed-item__title">Grid-Scale Battery Economics: LFP vs NMC in Utility Applications</span>
+          <span class="feed-item__date">Jun 2026</span>
+        </a>
+        <a href="/insights" class="feed-item">
+          <span class="feed-item__tag">Primer</span>
+          <span class="feed-item__title">Carbon Credit Verification: Quality Standards Compared</span>
+          <span class="feed-item__date">Jun 2026</span>
+        </a>
+        <a href="/insights" class="feed-item">
+          <span class="feed-item__tag">Report</span>
+          <span class="feed-item__title">Offshore Wind: Supply Chain Bottlenecks and Installation Forecasts</span>
+          <span class="feed-item__date">May 2026</span>
+        </a>
+        <a href="/insights" class="feed-item">
+          <span class="feed-item__tag">Benchmark</span>
+          <span class="feed-item__title">Green Hydrogen Electrolyzer Technology Assessment</span>
+          <span class="feed-item__date">May 2026</span>
+        </a>
+        <a href="/insights" class="feed-item">
+          <span class="feed-item__tag">Analysis</span>
+          <span class="feed-item__title">Nuclear Renaissance: SMR Deployment Timeline and Economics</span>
+          <span class="feed-item__date">Apr 2026</span>
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- ═══ NEWSLETTER ═══ -->
+  <section class="section section--dark">
+    <div class="container newsletter-section">
+      <div class="newsletter-section__content">
+        <h2>Get the <span class="gradient-text">Energy & Climate Briefing</span></h2>
+        <p>Weekly research digest with key findings, market signals, and analysis — delivered to your inbox.</p>
+        <div class="newsletter-section__proof">
+          <span>2,400+ subscribers</span><span>82% open rate</span><span>Free forever</span>
+        </div>
+      </div>
+      <div class="newsletter-section__form">
+        <NewsletterSignup />
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

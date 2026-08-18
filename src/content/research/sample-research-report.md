@@ -16,6 +16,7 @@ disclosure: "No commercial relationship with any vendor evaluated"
 limitations: "Based on publicly available data as of August 2026"
 featured: true
 status: "Live"
+heroImage: "/images/hero-default.svg"
 ---
 
 ## Executive Summary

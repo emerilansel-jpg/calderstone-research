@@ -243,7 +243,7 @@
           body: JSON.stringify({ repo: REPO, branch: BRANCH, path: `src/content/research/${slug}.md`, content: encoded, message: `Add article: ${slug}` }),
         });
         const data = await res.json();
-        if (data.success) { status.innerHTML = '<span class="success">Published! <a href="https://github.com/' + REPO + '/actions" target="_blank">View build →</a></span>'; }
+        if (res.ok) { status.innerHTML = '<span class="success">Published! <a href="https://github.com/' + REPO + '/actions" target="_blank">View build →</a></span>'; }
         else { status.innerHTML = '<span class="error">' + (data.error || 'Failed') + '</span>'; }
       } catch { status.innerHTML = '<span class="error">Network error</span>'; }
     }
@@ -256,8 +256,8 @@
           headers: { 'Authorization': 'Bearer ' + token },
         });
         const data = await res.json();
-        if (!data.files) { list.innerHTML = '<li>Failed to load posts</li>'; return; }
-        const mdFiles = data.files.filter(f => f.path.startsWith('src/content/research/') && f.path.endsWith('.md'));
+        const files = Array.isArray(data) ? data : (data.files || []);
+        const mdFiles = files.filter(f => f.path.startsWith('src/content/research/') && f.path.endsWith('.md'));
         list.innerHTML = mdFiles.map(f => `
           <li>
             <a href="https://github.com/${REPO}/blob/${BRANCH}/${f.path}" target="_blank">${f.path.split('/').pop()}</a>
@@ -278,7 +278,7 @@
           body: JSON.stringify({ repo: REPO, branch: BRANCH, path: filePath, sha, message: 'Delete ' + filePath }),
         });
         const data = await res.json();
-        if (data.success) loadPosts();
+        if (res.ok) loadPosts();
         else alert(data.error || 'Delete failed');
       } catch { alert('Network error'); }
     }

@@ -24,3 +24,8 @@
 
 ## 5. Maintenance Rule
 Every architectural or operational change made to `calderstoneresearch.com` MUST be documented and updated in this `coldstart.md` file after user confirmation.
+
+## 6. Incident: Cloudflare API Token Expired / Invalid
+- **Symptom:** `Authentication error [code: 10000]` on `pages deploy`.
+- **Cause:** `CLOUDFLARE_API_TOKEN` GitHub Secret is expired or lacks `Cloudflare Pages:Edit` permissions.
+- **Resolution:** Recreate API token on Cloudflare Dashboard with `Account -> Cloudflare Pages -> Edit` and update secret `CLOUDFLARE_API_TOKEN` on GitHub repo settings.

@@ -19,28 +19,103 @@
       --radius: 8px;
     }
     * { box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
-    .login-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
-    .login-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; max-width: 420px; width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-    .login-box h1 { font-size: 1.5rem; margin: 0 0 0.5rem; color: var(--primary); }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .login-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .login-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .login-box h1 {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem;
+      color: var(--primary);
+    }
     .login-box p { color: var(--muted); margin: 0 0 1.5rem; }
     label { display: block; font-weight: 600; margin: 1rem 0 0.35rem; }
-    input[type="text"], input[type="password"], input[type="url"], input[type="email"], select, textarea { width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border); border-radius: var(--radius); font-family: inherit; font-size: 1rem; background: var(--surface); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius); font-weight: 600; cursor: pointer; font-size: 1rem; }
+    input[type="text"], input[type="password"], input[type="url"], input[type="email"], select, textarea {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      background: var(--surface);
+    }
+    textarea { resize: vertical; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+    }
     .btn:hover { opacity: 0.9; }
-    .btn-secondary { background: var(--primary); }
-    .btn-danger { background: #B91C1C; }
-    .btn-sm { padding: 0.4rem 0.75rem; font-size: 0.85rem; }
+    .btn-secondary {
+      background: var(--primary);
+    }
+    .btn-danger {
+      background: #B91C1C;
+    }
+    .btn-sm {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.85rem;
+    }
     .btn:disabled { opacity: 0.6; cursor: not-allowed; }
     .error { color: #B91C1C; margin-top: 0.75rem; font-size: 0.9rem; }
     .success { color: #15803D; margin-top: 0.75rem; font-size: 0.9rem; }
     .app { display: none; min-height: 100vh; }
-    .topbar { background: var(--primary); color: #fff; padding: 0.75rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .topbar {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .topbar h1 { font-size: 1.1rem; margin: 0; }
     .topbar button { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 0.35rem 0.75rem; border-radius: var(--radius); cursor: pointer; }
     .layout { display: flex; min-height: calc(100vh - 56px); }
-    .sidebar { width: 220px; background: var(--surface); border-right: 1px solid var(--border); padding: 1rem; }
-    .sidebar button { width: 100%; text-align: left; background: transparent; border: none; padding: 0.75rem 1rem; border-radius: var(--radius); cursor: pointer; color: var(--text); font-size: 0.95rem; }
+    .sidebar {
+      width: 220px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 1rem;
+    }
+    .sidebar button {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
     .sidebar button:hover, .sidebar button.active { background: var(--bg); color: var(--accent); font-weight: 600; }
     .main { flex: 1; padding: 1.5rem; overflow-y: auto; }
     .panel { display: none; max-width: 900px; }
@@ -48,16 +123,74 @@
     .panel h2 { margin-top: 0; color: var(--primary); }
     .form-grid { display: grid; gap: 1rem; margin-top: 1rem; }
     .form-grid.two { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .field { margin-bottom: 0.5rem; }
+    .field label { margin-top: 0; }
     .hint { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
-    .upload-zone { border: 2px dashed var(--border); border-radius: var(--radius); padding: 1.5rem; text-align: center; color: var(--muted); cursor: pointer; margin-top: 1rem; }
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      cursor: pointer;
+      margin-top: 1rem;
+      background: var(--surface);
+    }
     .upload-zone:hover { border-color: var(--accent); }
+    .thumbs { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+    .thumb { width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border); }
+    .status-bar {
+      position: sticky;
+      bottom: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 1rem 0;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .progress { font-size: 0.9rem; color: var(--muted); }
     .post-list { list-style: none; padding: 0; margin: 1rem 0 0; }
-    .post-list li { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+    .post-list li {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
     .post-list a { color: var(--primary); font-weight: 600; text-decoration: none; }
-    .post-list .actions { display: flex; gap: 0.5rem; }
+    .post-list a:hover { text-decoration: underline; }
+    .post-list .actions { display: flex; gap: 0.5rem; align-items: center; }
     .settings-grid { display: grid; gap: 1rem; margin-top: 1rem; }
     .code { font-family: monospace; font-size: 0.85rem; background: var(--bg); padding: 0.5rem; border-radius: var(--radius); word-break: break-all; }
-    @media (max-width: 768px) { .layout { flex-direction: column; } .sidebar { width: 100%; } }
+    .schema-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-top: 1.5rem;
+    }
+    .schema-section h3 { margin: 0 0 0.75rem; color: var(--primary); font-size: 1rem; }
+    .schema-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .settings-section {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .settings-section h3 { margin: 0 0 0.75rem; color: var(--primary); font-size: 1rem; }
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+      .sidebar button { display: inline-block; width: auto; }
+    }
   </style>
 </head>
 <body>
@@ -67,228 +200,603 @@
       <p>Admin CMS — sign in to publish research.</p>
       <label for="password">Password</label>
       <input type="password" id="password" placeholder="Enter admin password" />
-      <button class="btn" style="width:100%;margin-top:1rem;" onclick="login()">Sign In</button>
-      <p id="login-error" class="error" style="display:none;"></p>
+      <button class="btn" id="login-btn" style="width:100%;margin-top:1.25rem;">Sign In</button>
+      <p id="login-error" class="error"></p>
     </div>
   </div>
 
   <div id="app" class="app">
     <div class="topbar">
-      <h1>Calderstone Research . CMS</h1>
-      <button onclick="logout()">Sign Out</button>
+      <h1>Calderstone Research — Admin</h1>
+      <div>
+        <button id="logout-btn">Log out</button>
+      </div>
     </div>
     <div class="layout">
-      <div class="sidebar">
-        <button class="active" onclick="showPanel('new-post', this)">New Post</button>
-        <button onclick="showPanel('all-posts', this)">All Posts</button>
-        <button onclick="showPanel('settings', this)">Settings</button>
-      </div>
-      <div class="main">
-        <!-- New Post -->
-        <div id="new-post" class="panel active">
+      <nav class="sidebar">
+        <button class="active" data-panel="new-post">New Post</button>
+        <button data-panel="existing-posts">Existing Posts</button>
+        <button data-panel="settings">Settings</button>
+      </nav>
+      <main class="main">
+        <div id="panel-new-post" class="panel active">
           <h2>New Post</h2>
           <div class="form-grid two">
-            <div><label>Title</label><input type="text" id="post-title" oninput="autoSlug()" /></div>
-            <div><label>Slug</label><input type="text" id="post-slug" /><p class="hint">Auto-generated from title</p></div>
-            <div><label>Author</label><input type="text" id="post-author" value="Research Team" /></div>
-            <div><label>Reviewer</label><input type="text" id="post-reviewer" /></div>
-            <div><label>Category</label><input type="text" id="post-category" /></div>
-            <div><label>Subcategory</label><input type="text" id="post-subcategory" /></div>
-            <div><label>Output Format</label>
-              <select id="post-format">
-                <option>Market Report</option><option>Category Benchmark</option>
-                <option>Comparative Analysis</option><option>Research Primer</option>
-                <option>Category Definition</option><option>Evidence Submission</option>
-                <option>Company News</option>
+            <div class="field">
+              <label for="post-title">Title</label>
+              <input type="text" id="post-title" placeholder="Article title" />
+            </div>
+            <div class="field">
+              <label for="post-slug">Slug</label>
+              <input type="text" id="post-slug" placeholder="url-slug" />
+              <p class="hint">Lowercase, numbers, hyphens only.</p>
+            </div>
+            <div class="field">
+              <label for="post-author">Author</label>
+              <input type="text" id="post-author" placeholder="Calderstone Research Team" value="Calderstone Research Team" />
+            </div>
+            <div class="field">
+              <label for="post-reviewer">Reviewer</label>
+              <input type="text" id="post-reviewer" placeholder="Dr. Name, PhD" />
+            </div>
+            <div class="field">
+              <label for="post-category">Category</label>
+              <input type="text" id="post-category" placeholder="Home Services" />
+            </div>
+            <div class="field">
+              <label for="post-subcategory">Subcategory</label>
+              <input type="text" id="post-subcategory" placeholder="Home Remodeling" />
+            </div>
+            <div class="field">
+              <label for="post-output-format">Output Format</label>
+              <select id="post-output-format">
+                <option value="Market Report">Market Report</option>
+                <option value="Category Benchmark">Category Benchmark</option>
+                <option value="Comparative Analysis">Comparative Analysis</option>
+                <option value="Research Primer">Research Primer</option>
+                <option value="Category Definition">Category Definition</option>
+                <option value="Evidence Submission">Evidence Submission</option>
+                <option value="Company News">Company News</option>
               </select>
             </div>
-            <div><label>Status</label>
-              <select id="post-status"><option>Live</option><option>In Review</option><option>Planned</option></select>
+            <div class="field">
+              <label for="post-status">Status</label>
+              <select id="post-status">
+                <option value="Live">Live</option>
+                <option value="In Review">In Review</option>
+                <option value="Planned">Planned</option>
+              </select>
             </div>
-            <div><label>Publish Date</label><input type="date" id="post-date" /></div>
-            <div><label>Featured</label><select id="post-featured"><option value="false">No</option><option value="true">Yes</option></select></div>
+            <div class="field">
+              <label for="post-date">Publish Date</label>
+              <input type="date" id="post-date" />
+            </div>
+            <div class="field">
+              <label for="post-featured">Featured</label>
+              <select id="post-featured">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+              </select>
+            </div>
           </div>
-          <div class="form-grid" style="margin-top:1rem;">
-            <div><label>Description</label><textarea id="post-description" rows="3"></textarea></div>
-            <div><label>Research Question</label><input type="text" id="post-question" /></div>
-            <div><label>Evidence Classes (comma-separated)</label><input type="text" id="post-evidence" /></div>
-            <div><label>Disclosure</label><input type="text" id="post-disclosure" value="No commercial relationship" /></div>
-            <div><label>Limitations</label><textarea id="post-limitations" rows="2"></textarea></div>
-            <div><label>Hero Image URL</label><input type="url" id="post-hero" /></div>
+          <div class="field" style="margin-top:1rem;">
+            <label for="post-description">Description</label>
+            <input type="text" id="post-description" placeholder="1-2 sentence summary" />
           </div>
-          <div style="margin-top:1.5rem;">
-            <label>Article Body (Markdown)</label>
+          <div class="field" style="margin-top:1rem;">
+            <label for="post-research-question">Research Question</label>
+            <input type="text" id="post-research-question" placeholder="The single question this report answers" />
+          </div>
+          <div class="field" style="margin-top:1rem;">
+            <label for="post-evidence-classes">Evidence Classes</label>
+            <input type="text" id="post-evidence-classes" placeholder="direct-documentation, independent-reviews, market-signals" />
+            <p class="hint">Comma-separated list.</p>
+          </div>
+          <div class="field" style="margin-top:1rem;">
+            <label for="post-tags">Tags</label>
+            <input type="text" id="post-tags" placeholder="remodeling, hill-country, home-services" />
+            <p class="hint">Comma-separated list.</p>
+          </div>
+          <div class="field" style="margin-top:1rem;">
+            <label for="post-disclosure">Disclosure</label>
+            <input type="text" id="post-disclosure" value="No commercial relationship" />
+          </div>
+          <div class="field" style="margin-top:1rem;">
+            <label for="post-limitations">Limitations</label>
+            <textarea id="post-limitations" rows="3" placeholder="Scope boundaries, evidence gaps, time limits"></textarea>
+          </div>
+          <div class="field" style="margin-top:1rem;">
+            <label for="post-hero">Featured Image URL</label>
+            <input type="text" id="post-hero" placeholder="/images/hero-default.svg" />
+          </div>
+          <div class="field" style="margin-top:1rem;">
+            <label>Article Body</label>
             <textarea id="post-body"></textarea>
           </div>
-          <div style="margin-top:1.5rem;display:flex;gap:0.75rem;">
-            <button class="btn" onclick="publishPost()">Publish</button>
-            <span id="publish-status"></span>
+          <div class="upload-zone" id="body-upload-zone">
+            Click or drop images here to upload and insert into the article body
+          </div>
+          <input type="file" id="body-file-input" accept="image/*" multiple style="display:none;" />
+          <div class="thumbs" id="body-thumbs"></div>
+
+          <div class="schema-section">
+            <h3>Schema Markup</h3>
+            <p class="hint">Insert JSON-LD schema templates into the article body at the current cursor position.</p>
+            <div class="schema-buttons">
+              <button class="btn btn-secondary btn-sm" data-schema="faq">FAQ Schema</button>
+              <button class="btn btn-secondary btn-sm" data-schema="howto">HowTo Schema</button>
+              <button class="btn btn-secondary btn-sm" data-schema="review">Review/Rating Schema</button>
+              <button class="btn btn-secondary btn-sm" data-schema="dataset">Dataset Schema</button>
+            </div>
+          </div>
+
+          <div class="status-bar">
+            <p class="progress" id="publish-progress">Ready to publish.</p>
+            <button class="btn" id="publish-btn">Publish</button>
           </div>
         </div>
 
-        <!-- All Posts -->
-        <div id="all-posts" class="panel">
-          <h2>All Posts</h2>
-          <button class="btn btn-secondary btn-sm" onclick="loadPosts()">Refresh</button>
-          <ul id="post-list" class="post-list"></ul>
+        <div id="panel-existing-posts" class="panel">
+          <h2>Existing Posts</h2>
+          <p class="hint">Posts loaded from the repository via the backend API.</p>
+          <ul class="post-list" id="existing-posts-list"></ul>
+          <button class="btn btn-secondary" id="refresh-posts-btn" style="margin-top:1rem;">Refresh List</button>
         </div>
 
-        <!-- Settings -->
-        <div id="settings" class="panel">
+        <div id="panel-settings" class="panel">
           <h2>Settings</h2>
+          <p class="hint">These settings are stored in your browser only.</p>
           <div class="settings-grid">
-            <div><label>Repository</label><div class="code">emerilansel-jpg/calderstone-research</div></div>
-            <div><label>Branch</label><div class="code">main</div></div>
-            <div><label>Deploy</label><a href="https://github.com/emerilansel-jpg/calderstone-research/actions" target="_blank">View Build Status →</a></div>
+            <div class="field">
+              <label for="setting-repo">Repository</label>
+              <input type="text" id="setting-repo" placeholder="emerilansel-jpg/calderstone-research" />
+            </div>
+            <div class="field">
+              <label for="setting-branch">Branch</label>
+              <input type="text" id="setting-branch" value="main" />
+            </div>
+          </div>
+          <button class="btn" id="save-settings-btn" style="margin-top:1.5rem;">Save Settings</button>
+          <p id="settings-msg"></p>
+
+          <div class="settings-section">
+            <h3>Deploy Status</h3>
+            <p class="hint">View GitHub Actions build status for this repository.</p>
+            <a id="actions-link" href="#" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top:0.75rem;text-decoration:none;">View Build Status →</a>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.js"></script>
   <script>
-    const API = 'https://research-api.n311311.workers.dev';
-    const REPO = 'emerilansel-jpg/calderstone-research';
-    const BRANCH = 'main';
-    let token = sessionStorage.getItem('cms_token');
-    let easyMDE;
+    const API_BASE = 'https://research-api.n311311.workers.dev';
+    const TOKEN_KEY = 'calderstone_admin_token';
+    const LS_KEYS = { repo: 'calderstone_admin_repo', branch: 'calderstone_admin_branch' };
 
-    function autoSlug() {
-      const title = document.getElementById('post-title').value;
-      document.getElementById('post-slug').value = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    function getSettings() {
+      return {
+        token: sessionStorage.getItem(TOKEN_KEY) || '',
+        repo: localStorage.getItem(LS_KEYS.repo) || 'emerilansel-jpg/calderstone-research',
+        branch: localStorage.getItem(LS_KEYS.branch) || 'main',
+      };
     }
 
-    async function login() {
-      const pw = document.getElementById('password').value;
-      const err = document.getElementById('login-error');
-      try {
-        const res = await fetch(API + '/api/auth/login', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password: pw }),
-        });
-        const data = await res.json();
-        if (data.token) {
-          token = data.token;
-          sessionStorage.setItem('cms_token', token);
-          document.getElementById('login-screen').style.display = 'none';
-          document.getElementById('app').style.display = 'block';
-          initEditor();
-        } else { err.textContent = data.error || 'Login failed'; err.style.display = 'block'; }
-      } catch { err.textContent = 'Network error'; err.style.display = 'block'; }
+    function saveSettings(settings) {
+      localStorage.setItem(LS_KEYS.repo, settings.repo);
+      localStorage.setItem(LS_KEYS.branch, settings.branch);
     }
 
-    function logout() {
-      token = null;
-      sessionStorage.removeItem('cms_token');
-      location.reload();
+    let mde;
+    let uploadedImages = [];
+    let existingPostsCache = [];
+
+    function slugify(text) {
+      return text.toString().toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-+|-+$/g, '');
     }
 
-    function showPanel(id, btn) {
-      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.sidebar button').forEach(b => b.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      btn.classList.add('active');
-      if (id === 'all-posts') loadPosts();
+    function sanitizeFilename(name) {
+      return name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9._-]/g, '-').toLowerCase();
+    }
+
+    function escapeHtml(text) {
+      if (text == null) return '';
+      return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function setProgress(msg, isError) {
+      const el = document.getElementById('publish-progress');
+      el.textContent = msg;
+      el.style.color = isError ? '#B91C1C' : 'var(--muted)';
+    }
+
+    function showLogin() {
+      document.getElementById('login-screen').style.display = 'flex';
+      document.getElementById('app').style.display = 'none';
+    }
+
+    function showApp() {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      if (!mde) initEditor();
+      loadExistingPosts();
     }
 
     function initEditor() {
-      easyMDE = new EasyMDE({ element: document.getElementById('post-body'), spellcheck: false, status: false });
-      document.getElementById('post-date').value = new Date().toISOString().split('T')[0];
+      mde = new EasyMDE({
+        element: document.getElementById('post-body'),
+        spellChecker: false,
+        autosave: { enabled: true, uniqueId: 'calderstone-admin-draft', delay: 2000 },
+        toolbar: ['bold', 'italic', 'heading', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'table', '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'],
+        minHeight: '320px',
+      });
+
+      const cm = mde.codemirror;
+      cm.on('paste', (cm, e) => {
+        const items = e.clipboardData?.items;
+        if (!items) return;
+        for (const item of items) {
+          if (item.type.indexOf('image') === 0) {
+            e.preventDefault();
+            const file = item.getAsFile();
+            if (file) handleImageUpload(file, cm.getCursor());
+          }
+        }
+      });
+
+      cm.on('drop', (cm, e) => {
+        const files = e.dataTransfer?.files;
+        if (!files || !files.length) return;
+        e.preventDefault();
+        for (const file of files) {
+          if (file.type.indexOf('image') === 0) {
+            handleImageUpload(file, cm.coordsChar({ left: e.clientX, top: e.clientY }));
+          }
+        }
+      });
+    }
+
+    async function cmsApi(endpoint, method = 'GET', body) {
+      const { token, repo, branch } = getSettings();
+      const url = new URL(endpoint, API_BASE);
+      if (method === 'GET' && endpoint === '/api/cms/posts') {
+        url.searchParams.set('repo', repo);
+        url.searchParams.set('branch', branch);
+      }
+      const headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(url, {
+        method,
+        headers,
+        body: body ? JSON.stringify(body) : undefined,
+      });
+      if (!res.ok) {
+        let text = '';
+        try {
+          const errData = await res.json();
+          text = errData.error || JSON.stringify(errData);
+        } catch {
+          text = await res.text();
+        }
+        throw new Error(`${res.status}: ${text}`);
+      }
+      return res.json();
+    }
+
+    async function handleImageUpload(file, cursor) {
+      const slug = document.getElementById('post-slug').value.trim() || 'draft';
+      const filename = sanitizeFilename(file.name);
+      const path = `public/images/posts/${slug}/${filename}`;
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const base64 = reader.result.split(',')[1];
+        try {
+          setProgress(`Uploading ${filename}...`);
+          await cmsApi('/api/cms/upload', 'POST', {
+            repo: getSettings().repo,
+            branch: getSettings().branch,
+            path,
+            content: base64,
+            message: `media: add ${filename} for ${slug}`,
+          });
+          const markdown = `![${filename}](/images/posts/${slug}/${filename})`;
+          if (cursor && mde) {
+            mde.codemirror.replaceRange(`\n${markdown}\n`, cursor);
+          } else if (mde) {
+            mde.value(mde.value() + `\n${markdown}\n`);
+          }
+          uploadedImages.push({ path, markdown });
+          const thumbs = document.getElementById('body-thumbs');
+          const img = document.createElement('img');
+          img.src = reader.result;
+          img.className = 'thumb';
+          img.title = filename;
+          thumbs.appendChild(img);
+          setProgress(`Uploaded ${filename}.`);
+        } catch (err) {
+          setProgress(`Upload failed: ${err.message}`, true);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function getSchemaTemplate(type) {
+      const templates = {
+        faq: `<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "FAQPage",\n  "mainEntity": [\n    {\n      "@type": "Question",\n      "name": "Question text here?",\n      "acceptedAnswer": {\n        "@type": "Answer",\n        "text": "Answer text here."\n      }\n    }\n  ]\n}\n<\/script>`,
+        howto: `<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "HowTo",\n  "name": "How to accomplish this task",\n  "step": [\n    {\n      "@type": "HowToStep",\n      "name": "Step 1",\n      "text": "Description of step 1."\n    }\n  ]\n}\n<\/script>`,
+        review: `<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "Review",\n  "itemReviewed": {\n    "@type": "Thing",\n    "name": "Product or service name"\n  },\n  "reviewRating": {\n    "@type": "Rating",\n    "ratingValue": "4.5",\n    "bestRating": "5"\n  },\n  "author": {\n    "@type": "Person",\n    "name": "Reviewer name"\n  }\n}\n<\/script>`,
+        dataset: `<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "Dataset",\n  "name": "Dataset name",\n  "description": "Brief description of the dataset.",\n  "creator": {\n    "@type": "Organization",\n    "name": "Organization name"\n  }\n}\n<\/script>`,
+      };
+      return templates[type] || '';
+    }
+
+    function insertSchema(type) {
+      if (!mde) return;
+      const template = getSchemaTemplate(type);
+      if (!template) return;
+      const cm = mde.codemirror;
+      const cursor = cm.getCursor();
+      const block = `\n\n\`\`\`json\n${template}\n\`\`\`\n\n`;
+      cm.replaceRange(block, cursor);
+      cm.focus();
     }
 
     async function publishPost() {
-      const slug = document.getElementById('post-slug').value;
-      if (!slug) return alert('Slug is required');
-      const status = document.getElementById('publish-status');
-      status.textContent = 'Publishing...';
-
-      const frontmatter = [
-        '---',
-        `title: "${document.getElementById('post-title').value}"`,
-        `description: "${document.getElementById('post-description').value}"`,
-        `publishDate: ${document.getElementById('post-date').value}`,
-        `author: "${document.getElementById('post-author').value}"`,
-      ];
-      const reviewer = document.getElementById('post-reviewer').value;
-      if (reviewer) frontmatter.push(`reviewer: "${reviewer}"`);
-      const category = document.getElementById('post-category').value;
-      if (category) frontmatter.push(`category: "${category}"`);
-      const subcategory = document.getElementById('post-subcategory').value;
-      if (subcategory) frontmatter.push(`subcategory: "${subcategory}"`);
-      frontmatter.push(`outputFormat: "${document.getElementById('post-format').value}"`);
-      const question = document.getElementById('post-question').value;
-      if (question) frontmatter.push(`researchQuestion: "${question}"`);
-      const evidence = document.getElementById('post-evidence').value;
-      if (evidence) {
-        frontmatter.push('evidenceClasses:');
-        evidence.split(',').map(e => e.trim()).forEach(e => frontmatter.push(`  - "${e}"`));
+      const settings = getSettings();
+      const title = document.getElementById('post-title').value.trim();
+      let slug = document.getElementById('post-slug').value.trim();
+      if (!title || !slug) {
+        setProgress('Title and slug are required.', true);
+        return;
       }
-      frontmatter.push(`disclosure: "${document.getElementById('post-disclosure').value}"`);
-      const limitations = document.getElementById('post-limitations').value;
-      if (limitations) frontmatter.push(`limitations: "${limitations}"`);
-      const hero = document.getElementById('post-hero').value;
-      if (hero) frontmatter.push(`heroImage: "${hero}"`);
-      frontmatter.push(`status: "${document.getElementById('post-status').value}"`);
-      frontmatter.push(`featured: ${document.getElementById('post-featured').value}`);
-      frontmatter.push('---');
+      const date = document.getElementById('post-date').value.trim() || new Date().toISOString().split('T')[0];
+      const author = document.getElementById('post-author').value.trim() || 'Calderstone Research Team';
+      const reviewer = document.getElementById('post-reviewer').value.trim();
+      const category = document.getElementById('post-category').value.trim() || 'Home Services';
+      const subcategory = document.getElementById('post-subcategory').value.trim();
+      const outputFormat = document.getElementById('post-output-format').value;
+      const status = document.getElementById('post-status').value;
+      const description = document.getElementById('post-description').value.trim() || title;
+      const researchQuestion = document.getElementById('post-research-question').value.trim();
+      const evidenceClasses = document.getElementById('post-evidence-classes').value.split(',').map(s => s.trim()).filter(Boolean);
+      const tags = document.getElementById('post-tags').value.split(',').map(s => s.trim()).filter(Boolean);
+      const disclosure = document.getElementById('post-disclosure').value.trim() || 'No commercial relationship';
+      const limitations = document.getElementById('post-limitations').value.trim();
+      const featured = document.getElementById('post-featured').value === 'true';
+      const heroImage = document.getElementById('post-hero').value.trim();
+      const body = mde ? mde.value() : '';
 
-      const content = frontmatter.join('\n') + '\n\n' + easyMDE.value();
-      const encoded = btoa(unescape(encodeURIComponent(content)));
+      const frontmatter = {
+        title,
+        description,
+        publishDate: date,
+        date,
+        author,
+        ...(reviewer ? { reviewer } : {}),
+        category,
+        ...(subcategory ? { subcategory } : {}),
+        outputFormat,
+        ...(researchQuestion ? { researchQuestion } : {}),
+        ...(evidenceClasses.length ? { evidenceClasses } : {}),
+        tags: tags.length ? tags : ['research'],
+        disclosure,
+        ...(limitations ? { limitations } : {}),
+        featured,
+        ...(heroImage ? { heroImage, featured_image: heroImage } : {}),
+        status,
+      };
+
+      function yamlString(val) {
+        if (val === null || val === undefined) return '';
+        if (typeof val === 'string') {
+          if (val.includes(':') || val.includes('"') || val.includes('\n')) return JSON.stringify(val);
+          return val;
+        }
+        return JSON.stringify(val);
+      }
+
+      let fmText = '---\n';
+      for (const [key, val] of Object.entries(frontmatter)) {
+        if (Array.isArray(val)) {
+          fmText += `${key}:\n`;
+          for (const item of val) fmText += `  - ${yamlString(item)}\n`;
+        } else {
+          fmText += `${key}: ${yamlString(val)}\n`;
+        }
+      }
+      fmText += '---\n\n' + body;
+
+      const content = btoa(unescape(encodeURIComponent(fmText)));
+      const path = `src/content/research/${slug}.md`;
 
       try {
-        const res = await fetch(API + '/api/cms/publish', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
-          body: JSON.stringify({ repo: REPO, branch: BRANCH, path: `src/content/research/${slug}.md`, content: encoded, message: `Add article: ${slug}` }),
+        setProgress('Publishing...');
+        await cmsApi('/api/cms/publish', 'POST', {
+          repo: settings.repo,
+          branch: settings.branch,
+          path,
+          content,
+          message: `content: publish ${title}`,
         });
-        const data = await res.json();
-        if (res.ok) { status.innerHTML = '<span class="success">Published! <a href="https://github.com/' + REPO + '/actions" target="_blank">View build →</a></span>'; }
-        else { status.innerHTML = '<span class="error">' + (data.error || 'Failed') + '</span>'; }
-      } catch { status.innerHTML = '<span class="error">Network error</span>'; }
+        setProgress(`Published successfully! Live in ~90 seconds at /research/${slug}`);
+        setTimeout(() => setProgress('Ready to publish.'), 4000);
+      } catch (err) {
+        setProgress(`Publish failed: ${err.message}`, true);
+      }
     }
 
-    async function loadPosts() {
-      const list = document.getElementById('post-list');
+    async function loadExistingPosts() {
+      const list = document.getElementById('existing-posts-list');
       list.innerHTML = '<li>Loading...</li>';
       try {
-        const res = await fetch(API + '/api/cms/posts?repo=' + REPO + '&branch=' + BRANCH, {
-          headers: { 'Authorization': 'Bearer ' + token },
-        });
-        const data = await res.json();
-        const files = Array.isArray(data) ? data : (data.files || []);
-        const mdFiles = files.filter(f => f.path.startsWith('src/content/research/') && f.path.endsWith('.md'));
-        list.innerHTML = mdFiles.map(f => `
-          <li>
-            <a href="https://github.com/${REPO}/blob/${BRANCH}/${f.path}" target="_blank">${f.path.split('/').pop()}</a>
-            <div class="actions">
-              <button class="btn btn-danger btn-sm" onclick="deletePost('${f.path}', '${f.sha}')">Delete</button>
-            </div>
-          </li>
-        `).join('');
-      } catch { list.innerHTML = '<li>Network error</li>'; }
+        const data = await cmsApi('/api/cms/posts');
+        const posts = Array.isArray(data) ? data.filter(item => item.name && item.name.endsWith('.md')).sort((a, b) => b.name.localeCompare(a.name)) : [];
+        existingPostsCache = posts;
+        list.innerHTML = '';
+        if (!posts.length) {
+          list.innerHTML = '<li>No posts found.</li>';
+          return;
+        }
+        for (const post of posts) {
+          const slug = post.name.replace(/\.md$/, '');
+          const li = document.createElement('li');
+          li.innerHTML = '<div><a href="/research/' + escapeHtml(slug) + '" target="_blank">' + escapeHtml(post.name) + '</a><span style="color:var(--muted);font-size:0.85rem;display:block;margin-top:0.15rem;">' + escapeHtml(post.path) + '</span></div><div class="actions"><button class="btn btn-danger btn-sm" data-delete="' + escapeHtml(post.name) + '">Delete</button></div>';
+          list.appendChild(li);
+        }
+      } catch (err) {
+        list.innerHTML = '<li style="color:#B91C1C;">Failed to load posts: ' + escapeHtml(err.message) + '</li>';
+      }
     }
 
-    async function deletePost(filePath, sha) {
-      if (!confirm('Delete ' + filePath + '?')) return;
+    async function deletePost(name) {
+      if (!confirm(`Are you sure you want to delete "${name}"? This cannot be undone.`)) return;
+      const post = existingPostsCache.find(p => p.name === name);
+      if (!post || !post.sha) {
+        setProgress('Could not find post SHA.', true);
+        return;
+      }
       try {
-        const res = await fetch(API + '/api/cms/delete', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
-          body: JSON.stringify({ repo: REPO, branch: BRANCH, path: filePath, sha, message: 'Delete ' + filePath }),
+        await cmsApi('/api/cms/delete', 'POST', {
+          repo: getSettings().repo,
+          branch: getSettings().branch,
+          path: `src/content/research/${name}`,
+          sha: post.sha,
+          message: `content: delete ${name}`,
         });
-        const data = await res.json();
-        if (res.ok) loadPosts();
-        else alert(data.error || 'Delete failed');
-      } catch { alert('Network error'); }
+        loadExistingPosts();
+      } catch (err) {
+        alert(`Delete failed: ${err.message}`);
+      }
     }
 
-    // Auto-login if token exists
-    if (token) {
-      document.getElementById('login-screen').style.display = 'none';
-      document.getElementById('app').style.display = 'block';
-      initEditor();
+    function updateActionsLink() {
+      const repo = document.getElementById('setting-repo').value.trim() || getSettings().repo;
+      const link = document.getElementById('actions-link');
+      link.href = `https://github.com/${repo}/actions`;
     }
+
+    async function signIn() {
+      const password = document.getElementById('password').value;
+      const errorEl = document.getElementById('login-error');
+      errorEl.textContent = '';
+      try {
+        const res = await fetch(`${API_BASE}/api/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password }),
+        });
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text);
+        }
+        const { token } = await res.json();
+        sessionStorage.setItem(TOKEN_KEY, token);
+        showApp();
+      } catch (err) {
+        errorEl.textContent = 'Incorrect password or login error.';
+      }
+    }
+
+    document.getElementById('post-title').addEventListener('input', e => {
+      const slugField = document.getElementById('post-slug');
+      if (!slugField.dataset.edited) {
+        slugField.value = slugify(e.target.value);
+      }
+    });
+    document.getElementById('post-slug').addEventListener('input', e => {
+      e.target.dataset.edited = 'true';
+    });
+
+    document.getElementById('login-btn').addEventListener('click', signIn);
+
+    document.getElementById('password').addEventListener('keydown', e => {
+      if (e.key === 'Enter') signIn();
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      sessionStorage.removeItem(TOKEN_KEY);
+      document.getElementById('password').value = '';
+      showLogin();
+    });
+
+    document.querySelectorAll('.sidebar button').forEach(btn => {
+      btn.addEventListener('click', () => showPanel(btn.dataset.panel));
+    });
+
+    function showPanel(name) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.sidebar button').forEach(b => b.classList.remove('active'));
+      document.getElementById(`panel-${name}`).classList.add('active');
+      document.querySelector(`.sidebar button[data-panel="${name}"]`).classList.add('active');
+      if (name === 'existing-posts') loadExistingPosts();
+      if (name === 'settings') populateSettings();
+    }
+
+    function populateSettings() {
+      const s = getSettings();
+      document.getElementById('setting-repo').value = s.repo;
+      document.getElementById('setting-branch').value = s.branch;
+      updateActionsLink();
+    }
+
+    document.getElementById('save-settings-btn').addEventListener('click', () => {
+      saveSettings({
+        repo: document.getElementById('setting-repo').value.trim() || 'emerilansel-jpg/calderstone-research',
+        branch: document.getElementById('setting-branch').value.trim() || 'main',
+      });
+      updateActionsLink();
+      const msg = document.getElementById('settings-msg');
+      msg.textContent = 'Settings saved.';
+      msg.className = 'success';
+    });
+
+    document.getElementById('publish-btn').addEventListener('click', publishPost);
+
+    document.getElementById('body-upload-zone').addEventListener('click', () => document.getElementById('body-file-input').click());
+    document.getElementById('body-file-input').addEventListener('change', e => {
+      const cursor = mde ? mde.codemirror.getCursor() : null;
+      for (const file of e.target.files) handleImageUpload(file, cursor);
+      e.target.value = '';
+    });
+    document.getElementById('body-upload-zone').addEventListener('dragover', e => { e.preventDefault(); e.currentTarget.style.borderColor = 'var(--accent)'; });
+    document.getElementById('body-upload-zone').addEventListener('dragleave', e => { e.currentTarget.style.borderColor = 'var(--border)'; });
+    document.getElementById('body-upload-zone').addEventListener('drop', e => {
+      e.preventDefault();
+      e.currentTarget.style.borderColor = 'var(--border)';
+      const cursor = mde ? mde.codemirror.coordsChar({ left: e.clientX, top: e.clientY }) : null;
+      for (const file of e.dataTransfer.files) handleImageUpload(file, cursor);
+    });
+
+    document.getElementById('refresh-posts-btn').addEventListener('click', loadExistingPosts);
+
+    document.getElementById('existing-posts-list').addEventListener('click', e => {
+      if (e.target.matches('[data-delete]')) {
+        deletePost(e.target.dataset.delete);
+      }
+    });
+
+    document.querySelectorAll('[data-schema]').forEach(btn => {
+      btn.addEventListener('click', () => insertSchema(btn.dataset.schema));
+    });
+
+    document.getElementById('setting-repo').addEventListener('input', updateActionsLink);
+
+    document.getElementById('post-date').value = new Date().toISOString().split('T')[0];
+
+    if (getSettings().token) showApp();
   </script>
 </body>
 </html>

@@ -5,7 +5,7 @@ publishDate: 2026-10-01
 author: Calderstone Research
 category: Home Services
 subcategory: Air Conditioning
-outputFormat: Market Report
+outputFormat: Comparative Analysis
 researchQuestion: Which emergency heating repair provider in Wesley Chapel, Florida offers the strongest combination of response readiness, credentials, pricing transparency, local coverage, and renter suitability in 2026?
 evidenceClasses:
   - direct-documentation
